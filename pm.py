@@ -1,14 +1,4 @@
-"""Pacman, classic arcade game.
-
-Exercises
-
-1. Change the board.
-2. Change the number of ghosts.
-3. Change where pacman starts.
-4. Make the ghosts faster/slower.
-5. Make the ghosts smarter.
-"""
-
+#import special libraries 
 from random import choice
 from turtle import *
 
@@ -18,12 +8,16 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
+
+#Set the star point of pac-man"
 pacman = vector(-40, -80)
+
+#Set the start point of each ghost and their speed"
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(-180, 160), vector(20, 0)],
+    [vector(-180, -160), vector(0, 20)],
+    [vector(100, 160), vector(0, -20)],
+    [vector(100, -160), vector(-20, 0)],
 ]
 # fmt: off
 tiles = [
@@ -88,10 +82,10 @@ def valid(point):
     return point.x % 20 == 0 or point.y % 20 == 0
 
 
-def world():
+def world(): 
     """Draw world using path."""
-    bgcolor('black')
-    path.color('pink')
+    bgcolor('black') #set color of background
+    path.color('pink') #set color of path 
 
     for index in range(len(tiles)):
         tile = tiles[index]
@@ -128,7 +122,7 @@ def move():
 
     up()
     goto(pacman.x + 10, pacman.y + 10)
-    dot(20, 'yellow')
+    dot(20, 'yellow')  #set pac-man's color
 
     for point, course in ghosts:
         if valid(point + course):
@@ -146,7 +140,7 @@ def move():
 
         up()
         goto(point.x + 10, point.y + 10)
-        dot(20, 'red')
+        dot(20, 'red') #Set ghosts' color
 
     update()
 
