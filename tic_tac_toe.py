@@ -2,7 +2,7 @@
 
 Exercises
 
-1. Change size and color of "X", "O" and center them
+1. Change size and color of "X", "O" and center them.
 2. Validate if box is already occupied
 '''
 
@@ -21,21 +21,27 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
-    line(x, y, x + 133, y + 133)
-    line(x, y + 133, x + 133, y)
+   
+    color('red')
+   
+    line(x, y, x + 13.3, y + 13.3)
+    line(x, y + 13.3, x + 13.3, y)
 
 
 def drawo(x, y):
     """Draw O player."""
+    
+    color('blue')
+    
     up()
-    goto(x + 67, y + 5)
+    goto(x + 6.7, y + 0.5)
     down()
-    circle(62)
+    circle(6.2)
 
 
 def floor(value):
     """Round value down to grid with square size 133."""
-    return ((value + 200) // 133) * 133 - 200
+    return ((value + 13.3) // 133) * 133 - 13.3
 
 
 state = {'player': 0}
