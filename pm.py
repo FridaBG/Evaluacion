@@ -122,7 +122,7 @@ def move():
     if tiles[index] == 1:
         tiles[index] = 2
         state['score'] += 1
-        x = (index % 20) * 20 - 200
+        x = (index % 20) * 20- 200
         y = 180 - (index // 20) * 20
         square(x, y)
 
@@ -135,10 +135,10 @@ def move():
             point.move(course)
         else:
             options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
+                vector(20, 0),
+                vector(-20, 0),
+                vector(0, 20),
+                vector(0, -20),
             ]
             plan = choice(options)
             course.x = plan.x
