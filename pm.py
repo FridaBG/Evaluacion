@@ -1,6 +1,19 @@
-#import special libraries 
+# import special libraries
 from random import choice
-from turtle import *
+from turtle import onkey
+from turtle import Turtle
+from turtle import bgcolor
+from turtle import dot
+from turtle import goto
+from turtle import clear
+from turtle import update
+from turtle import hideturtle
+from turtle import tracer
+from turtle import listen
+from turtle import done
+from turtle import up
+from turtle import ontimer
+from turtle import setup
 
 from freegames import floor, vector
 
@@ -9,10 +22,10 @@ path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
 
-#Set the star point of pac-man"
+# Set the star point of pac-man"
 pacman = vector(-40, -80)
 
-#Set the start point of each ghost and their speed"
+# Set the start point of each ghost and their speed"
 ghosts = [
     [vector(-180, 160), vector(20, 0)],
     [vector(-180, -160), vector(0, 20)],
@@ -82,10 +95,10 @@ def valid(point):
     return point.x % 20 == 0 or point.y % 20 == 0
 
 
-def world(): 
+def world():
     """Draw world using path."""
-    bgcolor('black') #set color of background
-    path.color('pink') #set color of path 
+    bgcolor('black')  # set color of background
+    path.color('pink')  # set color of path
 
     for index in range(len(tiles)):
         tile = tiles[index]
@@ -98,7 +111,7 @@ def world():
             if tile == 1:
                 path.up()
                 path.goto(x + 10, y + 10)
-                path.dot(2, 'white')
+                path.dot(2, 'black')
 
 
 def move():
@@ -116,13 +129,13 @@ def move():
     if tiles[index] == 1:
         tiles[index] = 2
         state['score'] += 1
-        x = (index % 20) * 20- 200
+        x = (index % 20) * 20 - 200
         y = 180 - (index // 20) * 20
         square(x, y)
 
     up()
     goto(pacman.x + 10, pacman.y + 10)
-    dot(20, 'yellow')  #set pac-man's color
+    dot(20, 'yellow')   # set pac-man's color
 
     for point, course in ghosts:
         if valid(point + course):
@@ -140,7 +153,7 @@ def move():
 
         up()
         goto(point.x + 10, point.y + 10)
-        dot(20, 'red') #Set ghosts' color
+        dot(20, 'red')  # Set ghosts' color
 
     update()
 
