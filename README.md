@@ -23,4 +23,4 @@ El juego de **Tic Tac Toe**, consiste en una cuadricula de **3 x 3**, posicionar
 Se utilizo una matriz posición para determinar si la casilla se encuentra ocupada o no. Esta se inicializo con valores de 0, para determinar si ya estaba ocupada y si las combinación hecha por un jugador era la correcta.
 
 Se utlizo la librería de turtle como interfaz grafica, importando así diferentes modulos de la misma.
-go y de esa manera poder encontrar cada una de las líneas donde se tuvo que haber relaizado la modificación.
+
