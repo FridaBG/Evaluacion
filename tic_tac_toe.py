@@ -14,7 +14,6 @@ from turtle import update
 from turtle import setup
 from turtle import hideturtle
 from turtle import tracer
-# from turtle import onscreenclick
 from turtle import done
 from turtle import color
 from turtle import pencolor
@@ -96,7 +95,7 @@ def drawo(x, y):
 def draw_piece(i, j, p):
     if p == 0:
         return
-    x, y = 2*(j-1), -2*(i-1)
+    x, y = 2*(j - 1), -2*(i - 1)
     if p == 1:
         drawx(x, y)
     else:
@@ -104,7 +103,10 @@ def draw_piece(i, j, p):
 
 
 def draw(b):
+
+    # Draw the grid in the user interface
     grid()
+
     for i in range(3):
         for j in range(3):
             draw_piece(i, j, b[i][j])
@@ -152,6 +154,8 @@ def play(x, y):
         b[i][j], turn = 2, 'x'
     draw(b)
     r = gameover(b)
+
+    # Display notifiacation when the game is over
     if r == 1:
         screen.textinput("Game over!", "X won!")
     elif r == 2:
