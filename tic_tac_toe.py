@@ -17,6 +17,10 @@ from turtle import tracer
 from turtle import onscreenclick
 from turtle import done
 from turtle import color
+from turtle import pencolor
+from turtle import pensize
+from turtle import seth
+from turtle import fd
 
 from freegames import line
 
@@ -24,14 +28,32 @@ from freegames import line
 def grid():
     """Draw tic-tac-toe grid."""
     
-    line(-67, 200, -67, -200)
-    line(67, 200, 67, -200)
-    line(-200, -67, 200, -67)
-    line(-200, 67, 200, 67)
+    pencolor('green')
+    pensize(10)
+    up()
+    goto(-3,-1)
+    seth(0)
+    down()
+    fd(6)
+    up()
+    goto(-3,1)
+    seth(0)
+    down()
+    fd(6)
+    up()
+    goto(-1,-3)
+    seth(90)
+    down()
+    fd(6)
+    up()
+    goto(1,-3)
+    seth(90)
+    down()
+    fd(6)
 
 
 def drawx(x, y):
-    """Draw X player."""
+    """Draw X player"""
    
     color('red')
    
@@ -64,40 +86,12 @@ def tap(x, y):
     """Draw X or O in tapped square."""
     x = floor(x)
     y = floor(y)
-    
-    position = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0}
-    pos = 0
-
-    if position == [-146.3, 119.7]:
-        pos = {0:1}
-    elif position == [-13.3, 119.7]:
-        pos = {1:1}
-    elif position == [119.7, 119.7]:
-        pos = {2:1}
-    elif position == [-146.3, -13.3]:
-        pos = {3:1}
-    elif position == [-13.3, -13.3]:
-        pos = {4:1}
-    elif position == [119.7, -13.3]:
-        pos = {5:1}
-    elif position == [-146.3, -146.3]:
-        pos = {6:1}
-    elif position == [-13.3, -146.3]:
-        pos = {7:1}
-    elif position == [119.7, -146.3]:
-        pos = {8:1}
 
     player = state['player']
     draw = players[player]
     draw(x, y)
     update()
     state['player'] = not player
-    
-    if position[pos] == 0:
-
-        position[pos] = 1
-
-    print(position)
 
 setup(420, 420, 370, 0)
 hideturtle()
